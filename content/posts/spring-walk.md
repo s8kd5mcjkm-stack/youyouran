@@ -6,6 +6,10 @@ tags: ["生活", "随笔", "春天"]
 categories: ["日常"]
 description: "有些时刻，不需要目的地，只需要一双脚和一颗愿意感受的心。"
 showToc: true
+cover:
+  image: "images/covers/spring-walk-cover.png"
+  alt: "春日漫步封面 - 阳光洒满老巷子"
+  relative: true
 ---
 
 ## 那天下午，我决定不走寻常路

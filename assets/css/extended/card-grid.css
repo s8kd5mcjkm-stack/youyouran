@@ -1,0 +1,161 @@
+/* ============================================
+   卡片瀑布流网格布局
+   ============================================ */
+
+/* 网格容器 */
+.post-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+    padding: 0.5rem 0 2rem;
+}
+
+/* ============================================
+   卡片样式
+   ============================================ */
+
+.card-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--entry);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   封面图
+   ============================================ */
+
+.card-item .entry-cover {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 0;
+}
+
+.card-item .entry-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card-item:hover .entry-cover img {
+    transform: scale(1.06);
+}
+
+/* ============================================
+   卡片文字区域
+   ============================================ */
+
+.card-item .entry-header {
+    padding: 1rem 1rem 0.3rem;
+}
+
+.card-item .entry-header h2 {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-item .entry-content {
+    padding: 0.2rem 1rem;
+    flex: 1;
+}
+
+.card-item .entry-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    line-height: 1.6;
+}
+
+.card-item .entry-footer {
+    padding: 0.5rem 1rem 1rem;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    margin-top: auto;
+}
+
+/* ============================================
+   全卡片可点击链接覆盖层
+   ============================================ */
+
+.card-item .entry-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* 让 footer 中的标签链接可点穿 */
+.card-item .entry-footer a {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   暗色模式适配
+   ============================================ */
+
+.dark .card-item:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   标签徽章样式
+   ============================================ */
+
+.card-item .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0 1rem 0.5rem;
+}
+
+.card-item .post-tags a {
+    font-size: 0.75rem;
+    background: var(--tertiary);
+    color: var(--secondary);
+    padding: 2px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    transition: background 0.2s;
+}
+
+.card-item .post-tags a:hover {
+    background: var(--border);
+    color: var(--primary);
+}
+
+/* ============================================
+   响应式微调
+   ============================================ */
+
+@media (max-width: 720px) {
+    .post-card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}
