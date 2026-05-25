@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://s8kd5mcjkm-stack.github.io/youyouran/sitemap.xml
